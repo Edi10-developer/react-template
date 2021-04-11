@@ -1,18 +1,11 @@
-import {Button, JokeContainer} from './components/index';
+import React from 'react';
+import { JokeContainer } from './components/index';
+
 const App = () => {
-
-   const setLoading = () => {
-       isLoaded = true 
-   }
-
     return (
         <>
-           <h1>Joke App</h1>
-           <JokeContainer
-           isLoaded={true} />
-           <Button title="Next Joke"
-           //onClick={setLoading} 
-           />
+            <h1>Joke App</h1>
+            <JokeContainer />
         </>
     );
 };
