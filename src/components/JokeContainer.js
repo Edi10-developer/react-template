@@ -1,33 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from './Button';
 import axios from 'axios';
 
 const JokeContainer = () => {
     const [isLoaded, setIsLoaded] = useState(false);
-    const [data, setData]         = useState('');
-    useEffect(() => {
-        const fetchData = async () => {
-            const result = await axios("http://api.icndb.com/jokes/random");
-            //setData(result.data.value.joke)
-        };
-        fetchData();
-    }, []);
+    const [data, setData] = useState({ setup: '', delivery: '' });
 
-      const setLoading = () => {
-        setData(data)
-        console.log(data)
-        setIsLoaded(true);
+    const fetchData = async () => {
+        const result = await axios('https://v2.jokeapi.dev/joke/Any');
+        setData({
+            setup: result.data.setup,
+            delivery: result.data.delivery
+        })
+    };
+
+    const jokeLoaded = () => {
+        fetchData(setIsLoaded(true));
+        
     }
 
     return (
-        <div>
-            { isLoaded ?  <h3>
-               {data} </h3> : null }
+        <>
+            { isLoaded ?
+                <h3> {data.setup} <br />
+                     {data.delivery}
+                </h3> : null}
             <Button
                 title="Next Joke"
-                onClick={setLoading}
+                onClick={jokeLoaded}
             />
-        </div>
+        </>
     )
 }
 
