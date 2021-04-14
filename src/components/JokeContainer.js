@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Button from './Button';
 import axios from 'axios';
-import {DivStyled}  from './styles.js';
+import { Button, Header, Joke } from './index.js';
+import { DivStyled } from './styles.js';
 
 const JokeContainer = () => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -20,12 +20,18 @@ const JokeContainer = () => {
 
     return (
         <DivStyled>
-            <h1>Ready to laugh?</h1>
+            <Header
+                title="Ready to laugh?"
+                emojy="&#129315;"
+            />
 
             { isLoaded ?
-                <h3> {data.setup} <br />
-                    {data.delivery}
-                </h3> : null }
+                <Joke
+                    setup={data.setup}
+                    delivery={data.delivery}
+                />
+                : null }
+
             <Button
                 title="Next Joke"
                 onClick={jokeLoaded}
