@@ -7,18 +7,17 @@ const Weather = () => {
 
     const geoLocate = () => {
         navigator.geolocation.getCurrentPosition(position => {
-            console.log(position)
-            //setPosition({ lat: position.coords.latitude, long: position.coords.longitude });
+            setPosition({ lat: position.coords.latitude, long: position.coords.longitude });
         })
     }
     
-    const apiKey = '96420e6d80d22f09002374ea99b14b86';
+    const apiKey = '887f19523a682aed9fee8c804ab554ad';
 
     useEffect(async ()=>{
         geoLocate();
          
-        const result = await axios(`https://api.openweathermap.org/data/2.5/weather?lat=${position.lat}&lon=${position.long}&appid=${apiKey}`);
-        console.log(result.weather);
+        const result = await axios(`https://api.openweathermap.org/data/2.5/weather?lat=${position.lat}&lon=${position.long}&appid=${apiKey}`);  
+          console.log(result);
     },[])
 
     return (
