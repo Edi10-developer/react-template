@@ -1,15 +1,25 @@
 import React from 'react';
-import { JokeContainer, Weather, Header } from './components/index';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Welcome from '../src/pages/Welcome';
+import Jokes from '../src/pages/Jokes';
 
 const App = () => {
     return (
-        <>
         <div>
-            <Header title="JokeApp" />
-            <Weather />
-            <JokeContainer />
-            </div>
-        </>
+            <Router>
+                <Link exact to="/" />
+                <Link to="/Jokes" />
+
+                <Switch>
+                    <Route exact path="/">
+                        <Welcome />
+                    </Route>
+                    <Route path="/jokes">
+                        <Jokes />
+                    </Route>
+                </Switch>
+            </Router>
+        </div>
     );
 };
 

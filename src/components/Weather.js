@@ -3,29 +3,33 @@ import axios from 'axios';
 
 const Weather = () => {
     const [position, setPosition] = useState({ lat: '', long: '' });
-    const [data, setData] = useState({});
+   /// const [data, setData] = useState({ title: '', description: '' });
 
     const geoLocate = () => {
         navigator.geolocation.getCurrentPosition(position => {
-            setPosition({ lat: position.coords.latitude, long: position.coords.longitude });
+            const apiKey = '887f19523a682aed9fee8c804ab554ad';
+            const result = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`)
+/*
+            const weatherTitle = result.weather[0].main;
+            const weatherDescription = datas.data.weather[0].description;
+            setData({ title: weatherTitle, description: weatherDescription })
+            console.log(data)
+            /*
+            const weatherDescription = datas.data.weather[0].description;
+            const re = () => { setData({ title: weatherTitle, description: weatherDescription })} */
         })
-    }
-   
-    const proxy = 'https://cors-anywhere.herokuapp.com/'; // It should solve CORS issues
-    const apiKey = '887f19523a682aed9fee8c804ab554ad';
+        setPosition({ lat: position.coords.latitude, long: position.coords.longitude });
 
-    useEffect(async ()=>{
+        console.log(weatherTitle)
+    }
+
+    useEffect(async () => {
         geoLocate();
-         
-        const result = await axios.get(`${proxy}https://api.openweathermap.org/data/2.5/weather?lat=${position.lat}&lon=${position.long}&appid=${apiKey}`, 
-      );  
-          console.log(result);
-    },[])
+    }, [])
 
     return (
         <div>
-            <p>{position.long}</p>
-            <p>{position.lat}</p>
+            <h3>Weather Component</h3>
         </div>
     )
 }
