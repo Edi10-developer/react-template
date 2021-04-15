@@ -5,7 +5,6 @@ const Button = props => {
         <Btn
             value={props.value}
             onClick={props.onClick}
-            ddd='red'
         >
             {props.title}
         </Btn>

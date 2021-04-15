@@ -1,12 +1,14 @@
 import React from 'react';
-import { JokeContainer, Weather } from './components/index';
+import { JokeContainer, Weather, Header } from './components/index';
 
 const App = () => {
     return (
         <>
-            <h1>Joke App</h1>
+        <div>
+            <Header title="JokeApp" />
             <Weather />
             <JokeContainer />
+            </div>
         </>
     );
 };
