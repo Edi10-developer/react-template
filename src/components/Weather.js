@@ -3,33 +3,39 @@ import axios from 'axios';
 
 const Weather = () => {
     const [position, setPosition] = useState({ lat: '', long: '' });
-   /// const [data, setData] = useState({ title: '', description: '' });
-
-    const geoLocate = () => {
+    const [data, setData] = useState({ title:'', description: '' });
+   
+    const geoLocate =  () => {
         navigator.geolocation.getCurrentPosition(position => {
             const apiKey = '887f19523a682aed9fee8c804ab554ad';
-            const result = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`)
-/*
-            const weatherTitle = result.weather[0].main;
-            const weatherDescription = datas.data.weather[0].description;
-            setData({ title: weatherTitle, description: weatherDescription })
-            console.log(data)
-            /*
-            const weatherDescription = datas.data.weather[0].description;
-            const re = () => { setData({ title: weatherTitle, description: weatherDescription })} */
-        })
-        //setPosition({ lat: position.coords.latitude, long: position.coords.longitude });
-
-       // console.log(weatherTitle)
+            const result = fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`) 
+            .then(response => response.json())
+            .then(datas => {
+                 console.log("DATAS: ", datas.weather[0].main)
+                setData({ title:  datas.weather[0].main, description: datas.weather[0].description })
+               //const weatherTitle = datas.data.weather[0].main;
+               // const weatherDescription = datas.data.weather[0].description;
+              //  setData({ title: weatherTitle, description: weatherDescription })
+                console.log("DATA: ",data)
+            })
+            .catch(err => {console.log(err)})
+            /*setWeatherTitle(result.datas.data.weather[0].description);
+            console.log("title: ",weatherTitle)
+            */
+           
+            setPosition({ lat: position.coords.latitude, long: position.coords.longitude });
+         })
+       
     }
-
-    useEffect(async () => {
-        geoLocate();
+ 
+    useEffect(() =>{
+       geoLocate();  
     }, [])
 
     return (
         <div>
-            <h3>Weather Component</h3>
+           
+            <p>Weather Component</p>
         </div>
     )
 }
