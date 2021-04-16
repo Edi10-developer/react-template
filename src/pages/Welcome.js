@@ -1,12 +1,20 @@
 import React from 'react';
-//import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Header, Button } from '../components/index';
+import { WelcomeStyled } from '../components/styles';
 
 const Welcome = () => {
     return (
-        <div>
-            <h1> Welcome to Laughing App</h1 >
-            <a href="/jokes">Jokes</a> 
-        </div>
+        <WelcomeStyled>
+            <div className="container">
+                <div className="main-div">
+                    <Header title="Welcome to LaughingApp" />
+                    <Link to="/jokes">
+                        <Button title="Go to Jokes" />
+                    </Link>
+                </div>
+            </div>
+        </WelcomeStyled>
     )
 }
 

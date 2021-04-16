@@ -7,16 +7,9 @@ const App = () => {
     return (
         <div>
             <Router>
-                <Link exact to="/" />
-                <Link to="/Jokes" />
-
-                <Switch>
-                    <Route exact path="/">
-                        <Welcome />
-                    </Route>
-                    <Route path="/jokes">
-                        <Jokes />
-                    </Route>
+                <Switch>      
+                    <Route exact path="/" component={ Welcome } />
+                    <Route path="/jokes" component={ Jokes } />
                 </Switch>
             </Router>
         </div>

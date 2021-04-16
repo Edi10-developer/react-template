@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+// Assets
+import Item from '../assets/img/item1.jpg';
+import Item2 from '../assets/img/item2.jpg';
+import '../assets/fonts/Jost/static/Jost-Regular.ttf';
+import '../assets/fonts/CharterOne/CarterOne-Regular.ttf';
 
 const Btn = styled.button`
     width: 17rem;
@@ -19,12 +24,30 @@ const Btn = styled.button`
     }
 
     @media(max-width: 546px){
-        width: 14rem;
+        width: 13rem;
+    }
+`;
+const BtnLink = styled.button`
+    display: block;
+    width: 10rem;
+    height: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    line-height: .3rem;
+    color: white;
+    background-color: #d12727;
+    margin: -3rem auto;
+    border-radius: 7px;
+
+    :hover{
+        background-color: #FF0000;
     }
 `;
 
 const DivStyled = styled.div`
-    height: 24rem;
+    min-height: 24rem;
+    color: rgba(0, 0, 0, .85);
+    font-weight: 600;
     width: 60%;
     padding: 2rem;
     border: 1px solid #ccc;
@@ -33,6 +56,7 @@ const DivStyled = styled.div`
     align-items: center;
     justify-content: space-between;
     margin: 5rem auto;
+    background: white;
     border-radius: 15px;
     box-shadow: 5px #ccc;
     box-shadow: 5px 8px 24px 0px rgba(0,0,0,0.49);
@@ -41,7 +65,8 @@ const DivStyled = styled.div`
     `;
 
 const HeaderStyled = styled.h1`
-    font-family: Arial;
+    font-family: Jost;
+    color: #1d37b7;
 
     @media(max-width: 546px){
         font-size: 26px;
@@ -49,7 +74,8 @@ const HeaderStyled = styled.h1`
 `;
 
 const JokeStyled = styled.div`
-    font-family: Georgia;
+    font-family: CharterOne;
+    font-size: 25px;
     padding: 2rem;
     overflow: hidden;
 
@@ -61,4 +87,42 @@ const JokeStyled = styled.div`
     }
 `;
 
-export { Btn, DivStyled, HeaderStyled, JokeStyled };
+const WelcomeStyled = styled.div`
+.container{
+    background-image: linear-gradient(to right, black , #2b234c);
+    padding: 2rem;
+    z-index: -3;
+}
+
+.main-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    background-image: url(${Item2});
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+`;
+
+const JokesStyled = styled.div`
+.container{
+    background-image: linear-gradient(to right, black , #2b234c);
+    padding: 2rem;
+}
+
+.main-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(${Item});
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+`;
+
+export { Btn, BtnLink, DivStyled, HeaderStyled, JokeStyled, WelcomeStyled, JokesStyled };

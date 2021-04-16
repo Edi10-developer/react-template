@@ -18,9 +18,9 @@ const Weather = () => {
             const weatherDescription = datas.data.weather[0].description;
             const re = () => { setData({ title: weatherTitle, description: weatherDescription })} */
         })
-        setPosition({ lat: position.coords.latitude, long: position.coords.longitude });
+        //setPosition({ lat: position.coords.latitude, long: position.coords.longitude });
 
-        console.log(weatherTitle)
+       // console.log(weatherTitle)
     }
 
     useEffect(async () => {

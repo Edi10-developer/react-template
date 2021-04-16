@@ -1,14 +1,22 @@
 import React from 'react';
-import { JokeContainer, Weather, Header, Button } from '../components/index';
-
+import { JokeContainer, Weather, Header } from '../components/index';
+import { Link } from 'react-router-dom';
+import { BtnLink, JokesStyled } from '../components/styles';
 const Jokes = () => {
     return (
-        <div>
-            <Header title="JokeApp" />
-            <Weather />
-            <JokeContainer />
-            <a href="/">Home</a>
-        </div>
+        <JokesStyled>
+            <div className="container">
+                <div className="main-div">
+                    <Header title="JokeApp" />
+                    <Weather />
+                    <JokeContainer />
+                    <Link to="/">
+                        <BtnLink>Homepage</BtnLink>
+                    </Link>
+                </div>
+            </div>
+
+        </JokesStyled>
     )
 }
 
