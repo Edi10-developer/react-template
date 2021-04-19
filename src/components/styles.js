@@ -75,8 +75,7 @@ const HeaderStyled = styled.h1`
 
 const JokeStyled = styled.div`
     font-family: CharterOne;
-    font-size: 25px;
-    padding: 2rem;
+    font-size: 22px;
     overflow: hidden;
 
     @media(max-width: 546px){
@@ -125,4 +124,14 @@ const JokesStyled = styled.div`
 }
 `;
 
-export { Btn, BtnLink, DivStyled, HeaderStyled, JokeStyled, WelcomeStyled, JokesStyled };
+const LoadingStyled = styled.div`
+    text-align: center;
+
+    h3{
+        font-family: Jost;
+        color: #1d37b7;
+    }
+    `;
+
+
+export { Btn, BtnLink, DivStyled, HeaderStyled, JokeStyled, WelcomeStyled, JokesStyled, LoadingStyled };

@@ -11,7 +11,8 @@ const Weather = () => {
             const result = fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`) 
             .then(response => response.json())
             .then(datas => {
-                 console.log("DATAS: ", datas.weather[0].main)
+                 console.log("DATAS - title: ", datas.weather[0].main)
+                 console.log("DATAS - description: ", datas.weather[0].description)
                 setData({ title:  datas.weather[0].main, description: datas.weather[0].description })
                //const weatherTitle = datas.data.weather[0].main;
                // const weatherDescription = datas.data.weather[0].description;
