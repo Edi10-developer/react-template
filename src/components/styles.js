@@ -131,7 +131,40 @@ const LoadingStyled = styled.div`
         font-family: Jost;
         color: #1d37b7;
     }
-    `;
+`;
+
+const WeatherStyled = styled.div` 
+  svg {
+    height: 50%;
+    width: 50%;
+  }
+  path {
+    fill: rgba(94, 141, 242, .8);
+    stroke: #28086d;
+    stroke-width: 2;
+    stroke-linejoin: round;
+  }
+  path:hover {
+    fill: aliceblue;
+    stroke: lightskyblue;
+  }
+
+    font-family: Jost;
+    font-weight: 700;
+    text-align: center;
+
+    h3{
+        color: #28086d;
+        margin: -.6rem;
+        font-size: 29px;
+    }
+    p{
+        color: #28086d;
+        margin-top: -.6rem;
+        font-size: 19px;
+    }
+    
+`;
 
 
-export { Btn, BtnLink, DivStyled, HeaderStyled, JokeStyled, WelcomeStyled, JokesStyled, LoadingStyled };
+export { Btn, BtnLink, DivStyled, HeaderStyled, JokeStyled, WelcomeStyled, JokesStyled, LoadingStyled, WeatherStyled };

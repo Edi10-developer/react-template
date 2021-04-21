@@ -1,5 +1,5 @@
 import React from 'react';
-import { JokeContainer, Weather, Header } from '../components/index';
+import { JokeContainer, Weather } from '../components/index';
 import { Link } from 'react-router-dom';
 import { BtnLink, JokesStyled } from '../components/styles';
 const Jokes = () => {
@@ -7,7 +7,6 @@ const Jokes = () => {
         <JokesStyled>
             <div className="container">
                 <div className="main-div">
-                    <Header title="JokeApp" />
                     <Weather />
                     <JokeContainer />
                     <Link to="/">
