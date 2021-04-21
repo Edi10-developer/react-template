@@ -144,10 +144,6 @@ const WeatherStyled = styled.div`
     stroke-width: 2;
     stroke-linejoin: round;
   }
-  path:hover {
-    fill: aliceblue;
-    stroke: lightskyblue;
-  }
 
     font-family: Jost;
     font-weight: 700;
